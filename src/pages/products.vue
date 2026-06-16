@@ -183,16 +183,16 @@ function getEstadoLabel(estado: ProductoEstado): string {
   return estadoItems.find(item => item.value === estado)?.label || estado
 }
 
-function getColumnLabel(columnId: string): string {
-  return {
-    id: 'ID',
-    nombre: 'Producto',
-    precio: 'Precio',
-    stock: 'Stock',
-    categoria: 'Categoría',
-    estado: 'Estado'
-  }[columnId] || columnId
-}
+// function getColumnLabel(columnId: string): string {
+//   return {
+//     id: 'ID',
+//     nombre: 'Producto',
+//     precio: 'Precio',
+//     stock: 'stock',
+//     categoria: 'Categoría',
+//     estado: 'Estado'
+//   }[columnId] || columnId
+// }
 
 function resetForm() {
   Object.assign(state, {
@@ -451,8 +451,12 @@ const columns: TableColumn<Producto>[] = [
 
   <UModal v-model:open="formOpen" :title="modalTitle" description="Gestiona la información del catálogo de productos.">
     <template #body>
-      <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
-        
+      <UForm
+        :schema="schema"
+        :state="state"
+        class="space-y-4"
+        @submit="onSubmit"
+      >
         <UFormField label="Nombre del Producto" name="nombre">
           <UInput v-model="state.nombre" class="w-full" placeholder="Ej. Monitor Pro 27'" />
         </UFormField>
@@ -463,7 +467,12 @@ const columns: TableColumn<Producto>[] = [
 
         <div class="grid gap-4 sm:grid-cols-2">
           <UFormField label="Precio ($)" name="precio">
-            <UInput v-model.number="state.precio" type="number" step="0.01" class="w-full" />
+            <UInput
+              v-model.number="state.precio"
+              type="number"
+              step="0.01"
+              class="w-full"
+            />
           </UFormField>
 
           <UFormField label="Stock disponible" name="stock">
@@ -490,8 +499,19 @@ const columns: TableColumn<Producto>[] = [
         </UFormField>
 
         <div class="flex justify-end gap-2 pt-2">
-          <UButton label="Cancelar" color="neutral" variant="subtle" type="button" @click="formOpen = false" />
-          <UButton :label="submitLabel" color="primary" variant="solid" type="submit" />
+          <UButton
+            label="Cancelar"
+            color="neutral"
+            variant="subtle"
+            type="button"
+            @click="formOpen = false"
+          />
+          <UButton
+            :label="submitLabel"
+            color="primary"
+            variant="solid"
+            type="submit"
+          />
         </div>
       </UForm>
     </template>
@@ -500,8 +520,18 @@ const columns: TableColumn<Producto>[] = [
   <UModal v-model:open="deleteOpen" :title="deleteTitle" :description="deleteDescription">
     <template #body>
       <div class="flex justify-end gap-2">
-        <UButton label="Cancelar" color="neutral" variant="subtle" @click="deleteOpen = false" />
-        <UButton label="Eliminar" color="error" variant="solid" @click="deleteProductos" />
+        <UButton
+          label="Cancelar"
+          color="neutral"
+          variant="subtle"
+          @click="deleteOpen = false"
+        />
+        <UButton
+          label="Eliminar"
+          color="error"
+          variant="solid"
+          @click="deleteProductos"
+        />
       </div>
     </template>
   </UModal>

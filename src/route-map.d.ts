@@ -45,6 +45,34 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/invoices': RouteRecordInfo<
+      '/invoices',
+      '/invoices',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/productDetails': RouteRecordInfo<
+      '/productDetails',
+      '/productDetails',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/productitem': RouteRecordInfo<
+      '/productitem',
+      '/productitem',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/products': RouteRecordInfo<
+      '/products',
+      '/products',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
   }
 
   /**
@@ -67,6 +95,30 @@ declare module 'vue-router/auto-routes' {
     'src/pages/customers.vue': {
       routes:
         | '/customers'
+      views:
+        | never
+    }
+    'src/pages/invoices.vue': {
+      routes:
+        | '/invoices'
+      views:
+        | never
+    }
+    'src/pages/productDetails.vue': {
+      routes:
+        | '/productDetails'
+      views:
+        | never
+    }
+    'src/pages/productitem.vue': {
+      routes:
+        | '/productitem'
+      views:
+        | never
+    }
+    'src/pages/products.vue': {
+      routes:
+        | '/products'
       views:
         | never
     }

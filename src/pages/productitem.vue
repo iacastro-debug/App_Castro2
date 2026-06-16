@@ -21,14 +21,20 @@ const addToCart = (product: Producto) => {
       :key="product.id"
       class="overflow-hidden transition hover:shadow-lg"
     >
-      <img :src="product.image" alt="Product Image" class="h-48 object-cover" />
+      <img :src="product.image" alt="Product Image" class="h-48 object-cover">
       <UCardBody class="flex flex-col gap-2">
         <UCardTitle>{{ product.title }}</UCardTitle>
-        <p class="text-sm text-gray-600">{{ product.description }}</p>
-        <p class="text-sm text-gray-600">{{ product.category }}</p>
+        <p class="text-sm text-gray-600">
+          {{ product.description }}
+        </p>
+        <p class="text-sm text-gray-600">
+          {{ product.category }}
+        </p>
       </UCardBody>
       <UCardFooter class="flex items-center justify-between mt-4">
-        <UBadge class="text-lg font-bold">${{ product.price }}</UBadge>
+        <UBadge class="text-lg font-bold">
+          ${{ product.price }}
+        </UBadge>
         <UButton
           variant="outline"
           color="primary"
